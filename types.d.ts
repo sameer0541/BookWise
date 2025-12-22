@@ -10,3 +10,10 @@ interface Book {
   color: string;
   cover: string;
 }
+interface SignUpProps {
+  fullName: string;
+  email: string;
+  universityId: string;
+  universityCard: string;
+  password: string;
+}

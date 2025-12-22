@@ -37,7 +37,6 @@ const AuthForm = <T extends FieldValues = FieldValues>({
   type,
   onSubmit,
 }: Props<T>) => {
-  console.log(defaultValues);
   const isSignIn = type === "SIGN_IN";
 
   const form = useForm({
@@ -47,7 +46,7 @@ const AuthForm = <T extends FieldValues = FieldValues>({
 
   const handleSubmit: SubmitHandler<T> = async (data) => {
     // ✅ This will be type-safe and validated.
-    console.log(data);
+    onSubmit(data);
   };
   return (
     <div className="flex flex-col gap-4">
@@ -60,7 +59,12 @@ const AuthForm = <T extends FieldValues = FieldValues>({
           : "Please complete all fields and upload a valid university ID to gain access to the library"}
       </p>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-8">
+        <form
+          onSubmit={(E) => {
+            E.preventDefault();
+            form.handleSubmit(handleSubmit)();
+          }}
+          className="space-y-8">
           {Object.keys(defaultValues).map((field) => (
             <FormField
               key={field}
@@ -72,7 +76,7 @@ const AuthForm = <T extends FieldValues = FieldValues>({
                     {FIELD_NAMES[field.name as keyof typeof FIELD_NAMES]}
                   </FormLabel>
                   <FormControl>
-                    {field.name === "universityCard" ? (
+                    {/* {field.name === "universityCard" ? (
                       <FileUpload
                         type="image"
                         accept="image/*"
@@ -90,7 +94,13 @@ const AuthForm = <T extends FieldValues = FieldValues>({
                         {...field}
                         className="form-input bg-[#232839]"
                       />
-                    )}
+                    )} */}
+                    <Input
+                      required
+                      type={FIELD_TYPES[field.name as keyof typeof FIELD_TYPES]}
+                      {...field}
+                      className="form-input bg-[#232839]"
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
