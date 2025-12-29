@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 interface Book {
   id: number;
   title: string;
@@ -16,4 +18,14 @@ interface SignUpProps {
   universityId: string;
   universityCard: string;
   password: string;
+}
+
+interface UserBarProps {
+  name: ReactNode;
+  email: string;
+  joiningDate: string;
+  role: string;
+  booksBorrowed: string;
+  universityIdNo: string;
+  universityIdCard: string;
 }

@@ -4,7 +4,6 @@ import { createToken } from "@/lib/actions/token.action";
 import { config } from "@/lib/config";
 import bcrypt from "bcryptjs";
 import { eq } from "drizzle-orm";
-import { redirect } from "next/dist/server/api-utils";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {
@@ -54,8 +53,17 @@ export async function POST(request: NextRequest) {
       { status: 200 }
     );
 
-    const userToken = createToken(email, config.jwt.secret);
+    // const userToken = createToken(email, config.jwt.secret);
 
+    // response.cookies.set("userToken", userToken, {
+    //   httpOnly: true,
+    //   secure: process.env.NODE_ENV === "production",
+    //   sameSite: "strict",
+    //   path: "/",
+    //   maxAge: 60 * 60 * 24 * 7, // 7 days
+    // });
+
+    const userToken = await createToken(existingUser.id);
     response.cookies.set("userToken", userToken, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",

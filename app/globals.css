@@ -115,7 +115,7 @@
   /* Gray */
   --color-gray-100: oklch(86.90% 0.0198 252.89);
   --background-image-pattern: url('/images/pattern.webp');
-  
+
 }
 
 :root {
@@ -143,15 +143,7 @@
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(100% 0.00011 271.152);
-  
-  --sidebar-foreground: oklch(0.129 0.042 264.695);
-  --sidebar-primary: oklch(0.208 0.042 265.755);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.968 0.007 247.896);
-  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
-  --sidebar-border: oklch(0.929 0.013 255.508);
-  --sidebar-ring: oklch(0.704 0.04 256.788);
+
 }
 
 .dark {
@@ -178,14 +170,6 @@
   --chart-3: oklch(0.769 0.188 70.08);
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.208 0.042 265.755);
-  --sidebar-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.279 0.041 260.031);
-  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.551 0.027 264.364);
 }
 
 @layer base {
@@ -195,7 +179,7 @@
   body {
     @apply bg-background text-foreground;
   }
-  
+
 }
 
 @layer components {
@@ -265,8 +249,6 @@
     @apply flex flex-col-reverse items-center gap-12 sm:gap-32 xl:flex-row xl:gap-8;
   }
 
-  
-
   .book-info {
     @apply mt-7 flex flex-row flex-wrap gap-4 text-xl text-light-100;
   }
@@ -274,10 +256,6 @@
   .book-copies {
     @apply flex flex-row flex-wrap gap-4 mt-1;
   }
-
-
-
-  
 
   .book-description {
     @apply mt-2 text-justify text-xl text-light-100;
@@ -318,8 +296,6 @@
   .book-ticket {
     @apply relative mt-10 hidden w-136 overflow-hidden bg-dark-300 py-8;
   }
-
- 
 
   .book-ticket-circles {
     @apply absolute inset-x-0 -bottom-6 flex flex-row gap-1.5;
